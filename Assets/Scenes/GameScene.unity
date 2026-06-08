@@ -3205,8 +3205,13 @@ MonoBehaviour:
   spawnPoint: {fileID: 644774135}
   coinsPerClick: 1
   coinValue: 1
-  force: 6
-  spread: 2.5
+  force: 3
+  spread: 1.2
+  verticalLift: 0.18
+  maxForce: 5
+  maxLaunchSpeed: 4.5
+  launchLinearDamping: 0.8
+  launchAngularDamping: 0.8
   autoSpitAmount: 0
   autoSpitInterval: 2
 --- !u!4 &1958630192

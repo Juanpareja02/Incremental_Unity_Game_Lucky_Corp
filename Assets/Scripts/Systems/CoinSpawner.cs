@@ -6,8 +6,13 @@ public class CoinSpawner : MonoBehaviour
     [SerializeField] private Transform spawnPoint;
     [SerializeField] private int coinsPerClick = 1;
     [SerializeField] private double coinValue = 1;
-    [SerializeField] private float force = 6f;
-    [SerializeField] private float spread = 2.5f;
+    [SerializeField] private float force = 3f;
+    [SerializeField] private float spread = 1.2f;
+    [SerializeField] private float verticalLift = 0.18f;
+    [SerializeField] private float maxForce = 5f;
+    [SerializeField] private float maxLaunchSpeed = 4.5f;
+    [SerializeField] private float launchLinearDamping = 0.8f;
+    [SerializeField] private float launchAngularDamping = 0.8f;
 
     [Header("Auto Spit")]
     [SerializeField] private int autoSpitAmount;
@@ -69,10 +74,16 @@ public class CoinSpawner : MonoBehaviour
             var rb = coin.GetComponent<Rigidbody>();
             if (rb != null)
             {
+                rb.linearDamping = Mathf.Max(rb.linearDamping, launchLinearDamping);
+                rb.angularDamping = Mathf.Max(rb.angularDamping, launchAngularDamping);
+
                 Vector3 dir = spawnPoint.forward
-                              + new Vector3(Random.Range(-1f, 1f), 0.6f, Random.Range(-1f, 1f)) * (spread * 0.3f);
-                rb.AddForce(dir.normalized * force, ForceMode.Impulse);
-                rb.AddTorque(Random.insideUnitSphere * 2f, ForceMode.Impulse);
+                              + new Vector3(Random.Range(-1f, 1f), verticalLift, Random.Range(-1f, 1f)) * (spread * 0.25f);
+                rb.AddForce(dir.normalized * Mathf.Min(force, maxForce), ForceMode.Impulse);
+                rb.AddTorque(Random.insideUnitSphere * 0.8f, ForceMode.Impulse);
+
+                if (rb.linearVelocity.magnitude > maxLaunchSpeed)
+                    rb.linearVelocity = rb.linearVelocity.normalized * maxLaunchSpeed;
             }
         }
     }
@@ -92,7 +103,7 @@ public class CoinSpawner : MonoBehaviour
 
     public void AddSpitForce(float add)
     {
-        force = Mathf.Max(0.1f, force + add);
+        force = Mathf.Clamp(force + add, 0.1f, maxForce);
     }
 
     public void AddSpread(float add)

@@ -18,6 +18,6 @@ MonoBehaviour:
   costGrowth: 1.3
   maxLevel: 4
   effect: 2
-  effectValue: 1.5
+  effectValue: 0.5
   autoSpitInterval: 2
   worldPrefab: {fileID: 0}
