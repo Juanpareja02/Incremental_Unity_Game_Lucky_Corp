@@ -117,7 +117,7 @@ public class InterfaceDesignController : MonoBehaviour
         if (window)
         {
             var rect = window.GetComponent<RectTransform>();
-            rect.sizeDelta = new Vector2(780f, 560f);
+            rect.sizeDelta = new Vector2(820f, 640f);
 
             var image = window.GetComponent<Image>();
             if (image)
@@ -135,14 +135,14 @@ public class InterfaceDesignController : MonoBehaviour
         if (container)
         {
             var rect = container.GetComponent<RectTransform>();
-            rect.offsetMin = new Vector2(0f, 58f);
-            rect.offsetMax = new Vector2(0f, -70f);
+            rect.offsetMin = new Vector2(0f, 64f);
+            rect.offsetMax = new Vector2(0f, -76f);
 
             var layout = container.GetComponent<VerticalLayoutGroup>();
             if (layout)
             {
-                layout.padding = new RectOffset(24, 24, 16, 16);
-                layout.spacing = 10f;
+                layout.padding = new RectOffset(24, 24, 12, 12);
+                layout.spacing = 8f;
             }
         }
     }

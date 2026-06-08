@@ -114,14 +114,14 @@ public class GeneratorShopUI : MonoBehaviour
         var layout = row.GetComponent<LayoutElement>();
         if (layout)
         {
-            layout.minHeight = 68f;
-            layout.preferredHeight = 68f;
+            layout.minHeight = 58f;
+            layout.preferredHeight = 58f;
             layout.flexibleWidth = 1f;
         }
 
         var rect = row.GetComponent<RectTransform>();
         if (rect)
-            rect.sizeDelta = new Vector2(rect.sizeDelta.x, 68f);
+            rect.sizeDelta = new Vector2(rect.sizeDelta.x, 58f);
 
         var image = row.GetComponent<Image>();
         if (image)
@@ -143,7 +143,7 @@ public class GeneratorShopUI : MonoBehaviour
         {
             label.textWrappingMode = TextWrappingModes.Normal;
             label.overflowMode = TextOverflowModes.Ellipsis;
-            label.fontSize = 17f;
+            label.fontSize = 15f;
             label.alignment = TextAlignmentOptions.MidlineLeft;
             label.margin = new Vector4(20f, 0f, 18f, 0f);
             label.color = Color.white;
