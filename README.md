@@ -13,6 +13,11 @@ Unity FPS incremental game where a central machine spits physical coins, the pla
 - Double-or-nothing casino row.
 - Run timer, coin goal, unlockable door, win/lose state.
 - Runtime UI polish for HUD, progress bar, shop overlay, row styling and crosshair.
+- Runtime art direction pass for room dressing, machine details, player hand visuals and coin styling.
+
+## Design notes
+
+See [Docs/GameDesignRoadmap.md](Docs/GameDesignRoadmap.md) for the story, feature roadmap and art direction.
 
 ## Unity
 

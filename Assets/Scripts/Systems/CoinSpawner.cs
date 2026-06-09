@@ -71,6 +71,8 @@ public class CoinSpawner : MonoBehaviour
             if (pickup != null)
                 pickup.SetValue(coinValue);
 
+            CoinVisualStyle.Apply(coin);
+
             var rb = coin.GetComponent<Rigidbody>();
             if (rb != null)
             {
